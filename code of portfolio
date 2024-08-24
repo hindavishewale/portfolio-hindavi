@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Hindavi Shewale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* Dark background color */
+            color: #e0e0e0; /* Light text color */
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #1e1e1e; /* Darker background for navbar */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #e0e0e0; /* Light text color */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #1abc9c;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center content horizontally */
+            padding: 60px 20px; /* Reduced padding */
+            background: linear-gradient(to right, #1abc9c, #16a085); /* Gradient background */
+            color: #ffffff;
+            min-height: 50vh; /* Reduced min-height */
+            text-align: center; /* Center text */
+            position: relative; /* For positioning overlay */
+        }
+
+        .hero-section .text {
+            max-width: 90%; /* Adjusted max-width */
+        }
+
+        .hero-section h1 {
+            font-size: 32px; /* Increased font size */
+            margin-bottom: 15px; /* Adjusted margin */
+            line-height: 1.2;
+        }
+
+        .hero-section p {
+            font-size: 18px; /* Increased font size */
+            margin-bottom: 20px; /* Adjusted margin */
+            max-width: 600px; /* Adjusted max-width */
+        }
+
+        .hero-section img {
+            border-radius: 50%;
+            width: 180px; /* Increased width */
+            height: 180px; /* Increased height */
+            object-fit: cover;
+            border: 5px solid #ffffff;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 60px 20px;
+            background-color: #1e1e1e; /* Darker background for about section */
+            color: #e0e0e0; /* Light text color */
+        }
+
+        .about-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 60px 20px;
+            background-color: #121212; /* Darker background for skills section */
+        }
+
+        .skills-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #1abc9c;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .skill {
+            background-color: #1e1e1e; /* Darker background for skill blocks */
+            color: #1abc9c;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 150px;
+            transition: transform 0.3s;
+        }
+
+        .skill:hover {
+            transform: scale(1.1);
+        }
+
+        .skill i {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .skill p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 60px 20px;
+            background-color: #1e1e1e; /* Darker background for projects section */
+        }
+
+        .projects-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #1abc9c;
+        }
+
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .project {
+            background-color: #121212; /* Darker background for project blocks */
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+        }
+
+        .project img {
+            width: 100%;
+            height: 200px; /* Consistent image height */
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .project h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .project a {
+            text-decoration: none; /* Remove underline from links */
+            color: inherit; /* Inherit text color */
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 60px 20px;
+            background-color: #1abc9c;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e1e1e; /* Darker background for footer */
+            padding: 20px;
+            text-align: center;
+            color: #e0e0e0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        footer .social-icons {
+            margin-top: 10px;
+        }
+
+        footer .social-icons a {
+            color: #e0e0e0;
+            margin: 0 10px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        footer .social-icons a:hover {
+            color: #1abc9c;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-section img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .skills-container, .projects-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project {
+                width: 100%;
+                max-width: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <div class="logo">
+        <h1>Hindavi Shewale</h1>
+    </div>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="text">
+        <h1>Hi, I'm Hindavi Shewale</h1>
+        <p>I am a Computer Engineering student with a passion for technology, coding, and solving complex problems. Let's create something amazing together!</p>
+    </div>
+    <img src="hphoto.jpg" alt="Hindavi Shewale">
+</div>
+
+<!-- About Section -->
+<div class="about-section" id="about">
+    <h2>About Me</h2>
+    <p>I am currently pursuing my degree in Computer Engineering. My interests lie in software development, machine learning, and web technologies. I am always eager to learn new skills and collaborate on exciting projects that challenge my abilities and expand my knowledge.</p>
+</div>
+
+<!-- Skills Section -->
+<div class="skills-section" id="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
+        <div class="skill">
+            <i class="fab fa-html5"></i>
+            <p>HTML5</p>
+        </div>
+        <div class="skill">
+            <i class="fab fa-css3-alt"></i>
+            <p>CSS3</p>
+        </div>
+        <div class="skill">
+            <i class="fab fa-js"></i>
+            <p>JavaScript</p>
+        </div>
+        <div class="skill">
+            <i class="fab fa-python"></i>
+            <p>Python</p>
+        </div>
+        <div class="skill">
+            <i class="fas fa-database"></i>
+            <p>SQL</p>
+        </div>
+    </div>
+</div>
+
+<!-- Projects Section -->
+<div class="projects-section" id="projects">
+    <h2>Projects</h2>
+    <div class="projects-container">
+        <div class="project">
+            <a href="number_guessing_game.html" target="_blank">
+                <img src="https://img.c3dt.com/bmtZMytBcVJ0L0hZbTVlblhyUCtQUT09=w200" alt="Number Guessing Game">
+                <h3>Number Guessing Game</h3>
+                <p>A fun and challenging game where users guess numbers within a range. Perfect for practicing logic and algorithms.</p>
+            </a>
+        </div>
+        <div class="project">
+            <a href="tic_tac_toe_game.html" target="_blank">
+                <img src="https://play-lh.googleusercontent.com/KZTO1L6r8CzWlg2InJoU_ndRAuvYiaS-35MyYdDPeeVCPNVfM9SBY2qRGjvvADmDIR8" alt="Tic Tac Toe Game">
+                <h3>Tic Tac Toe Game</h3>
+                <p>A classic Tic Tac Toe game with a user-friendly interface. Great for understanding game development basics.</p>
+            </a>
+        </div>
+        <div class="project">
+            <a href="to_do_list.html" target="_blank">
+                <img src="https://www.amitree.com/wp-content/uploads/2021/08/the-pros-and-cons-of-paper-to-do-lists.jpeg" alt="To Do List">
+                <h3>To Do List</h3>
+                <p>A useful application to manage tasks and improve productivity with an easy-to-use interface.</p>
+            </a>
+        </div>
+        <div class="project">
+            <a href="task2.html" target="_blank">
+                <img src="https://colorlib.com/wp/wp-content/uploads/sites/2/free-registration-forms.jpg" alt="Registration Form">
+                <h3>Registration Form</h3>
+                <p>An intuitive registration form with a clean design, used for collecting user data efficiently.</p>
+            </a>
+        </div>
+        <div class="project">
+            <a href="movi.html" target="_blank">
+                <img src="https://149842033.v2.pressablecdn.com/wp-content/uploads/2020/07/Jupiter-3.jpg" alt="Movie List">
+                <h3>Movie List</h3>
+                <p>A web application that displays a list of movies with details. Ideal for learning CRUD operations.</p>
+            </a>
+        </div>
+        <div class="project">
+            <a href="currency_converter.html" target="_blank">
+                <img src="https://cdn.shopify.com/app-store/listing_images/b33f6d876accac12b91af70e42dabbdb/icon/CK-cufzoue8CEAE=.png" alt="Currency Converter">
+                <h3>Currency Converter</h3>
+                <p>A tool to convert currencies with real-time exchange rates. Useful for handling different currencies in applications.</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Section -->
+<div class="contact-section" id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: hindavishewale2006@gmail.com</p>
+    <p>Feel free to reach out for collaborations or inquiries!</p>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p> Hindavi Shewale</p>
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/{https://www.linkedin.com/in/hindavi-shewale-24a872287}" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+</footer>
+
+</body>
+</html>
